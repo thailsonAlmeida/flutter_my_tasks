@@ -1,6 +1,16 @@
-# my_tasks
+# Titlulo
+Aplicativo básico para gestão de tarefas.
 
-A new Flutter project.
+# Descrição
+Aplicativo para quem deseja organizar as tarefas.
+O desenvolvimento tem como objetivo solidificar os conhecimentos em flutter.
+E apresentação de trabalgo para fim de semestre.
+
+# Funcionalidades
+
+# Tecnologias
+* Flutter
+* Sqflite
 
 ## Getting Started
 
