@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:my_tasks/widgets/button_custom.dart';
+import 'package:my_tasks/pages/components/button_custom.dart';
 
-class Login extends StatelessWidget {
-  const Login({super.key});
+class UserCreatePage extends StatelessWidget {
+  const UserCreatePage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -17,7 +17,7 @@ class Login extends StatelessWidget {
               height: 200,
               child: Image(
                 image: AssetImage(
-                  'assets/images/Logo.png',
+                  'assets/images/logo_usercreate.png',
                 ),
               ),
             ),
@@ -47,32 +47,33 @@ class Login extends StatelessWidget {
               ),
             ),
 
-            //create
-            Container(
-              height: 80,
-              alignment: AlignmentDirectional.centerEnd,
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.end,
-                children: [
-                  InkWell(
-                    onTap: () {},
-                    child: const Text(
-                      'Criar conta',
-                      style: TextStyle(fontSize: 20),
-                    ),
-                  ),
-                ],
+            const SizedBox(
+              height: 100,
+              child: TextField(
+                obscureText: true,
+                obscuringCharacter: "*",
+                decoration: InputDecoration(
+                  label: Text('Repetir senha'),
+                  border: OutlineInputBorder(),
+                  prefixIcon: Icon(Icons.lock_rounded),
+                ),
               ),
             ),
 
             //Button
             Row(
-              mainAxisAlignment: MainAxisAlignment.end,
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
                 ButtonCustom(
-                  text: 'Acessar',
+                  text: 'Cancelar',
                   onTap: () {},
-                )
+                  color: Colors.white,
+                  colorFont: Colors.black,
+                ),
+                ButtonCustom(
+                  text: 'Criar',
+                  onTap: () {},
+                ),
               ],
             )
           ],

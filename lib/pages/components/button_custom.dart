@@ -31,8 +31,8 @@ class ButtonCustom extends StatelessWidget {
       child: InkWell(
         onTap: onTap,
         child: Container(
-          width: 130,
-          height: 55,
+          width: width,
+          height: heith,
           decoration: const BoxDecoration(
             borderRadius: BorderRadius.all(
               Radius.circular(8),

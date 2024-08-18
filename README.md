@@ -1,26 +1,22 @@
-# Titlulo
-Aplicativo básico para gestão de tarefas.
+# Objetivo
+Desenvolver aplicativo básico para gestão de tarefas. Aplicativo para quem deseja organizar as tarefas.
 
-# Descrição
-Aplicativo para quem deseja organizar as tarefas.
-O desenvolvimento tem como objetivo solidificar os conhecimentos em flutter.
-E apresentação de trabalgo para fim de semestre.
+# Objetivo do aprendizado
+* Saber utilizar bando de dados em aplicações mobile.
+* Saber consumir API.
+* Solidificar os conhecimentos em componentização e criação de telas.
 
 # Funcionalidades
+* Cadastrar usuário
+* CRUD tarefas.
+* Consulta API GitHub
 
 # Tecnologias
 * Flutter
 * Sqflite
 
-## Getting Started
+# Recursos
+- ["Docs Flutter Dev "](https://docs.flutter.dev/)
+- ["Protótipo"](https://www.figma.com/design/HIoJO1twLwsBfjvQN07w7a/MyTasks-App?node-id=0-1&t=Lpdfnfx04Uyu6crL-1)
 
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+# Reflecão Pessoal
