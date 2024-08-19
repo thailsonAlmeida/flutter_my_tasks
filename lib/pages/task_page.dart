@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:my_tasks/pages/components/button_custom.dart';
+import 'package:my_tasks/pages/task_list_sreen.dart';
 
 class TaskPage extends StatefulWidget {
   const TaskPage({super.key});
@@ -17,7 +18,7 @@ class _TaskPageState extends State<TaskPage> {
   );
 
   static final List<Widget> _widgetOptions = <Widget>[
-    Padding(
+    /*Padding(
       padding: const EdgeInsets.all(8.0),
       child: Container(
         decoration: BoxDecoration(
@@ -104,6 +105,8 @@ class _TaskPageState extends State<TaskPage> {
         ),
       ),
     ),
+    */
+    const TaskListScreen(),
     const Text(
       'Index 1: Pesquisar',
       style: optionStyle,
@@ -124,6 +127,7 @@ class _TaskPageState extends State<TaskPage> {
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
+        /*
         appBar: AppBar(
           leading: const Icon(
             size: 35,
@@ -131,24 +135,16 @@ class _TaskPageState extends State<TaskPage> {
             color: Colors.white,
           ),
           backgroundColor: const Color.fromRGBO(33, 31, 38, 75),
-        ),
-        body: ListView(
-          children: [
-            _widgetOptions.elementAt(_selectedIndex),
-            _widgetOptions.elementAt(_selectedIndex),
-            _widgetOptions.elementAt(_selectedIndex),
-            _widgetOptions.elementAt(_selectedIndex),
-            _widgetOptions.elementAt(_selectedIndex),
-          ],
-        ),
-        floatingActionButton: FloatingActionButton(
+        ),*/
+        body: const TaskListScreen(),
+        /*floatingActionButton: FloatingActionButton(
           onPressed: () {},
           backgroundColor: const Color.fromRGBO(44, 44, 44, 1),
           child: const Icon(
             Icons.add,
             color: Colors.white,
           ),
-        ),
+        ),*/
         bottomNavigationBar: SizedBox(
           height: 100,
           child: BottomNavigationBar(
