@@ -71,7 +71,9 @@ class LoginPage extends StatelessWidget {
               children: [
                 ButtonCustom(
                   text: 'Acessar',
-                  onTap: () {},
+                  onTap: () {
+                    Navigator.pushNamed(context, '/task_page');
+                  },
                 )
               ],
             )

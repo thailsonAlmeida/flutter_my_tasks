@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:my_tasks/pages/components/button_custom.dart';
-import 'package:my_tasks/pages/task_list_sreen.dart';
+import 'package:my_tasks/services/github_repos.dart';
+import 'package:my_tasks/services/task_list_sreen.dart';
 
 class TaskPage extends StatefulWidget {
   const TaskPage({super.key});
@@ -107,14 +107,8 @@ class _TaskPageState extends State<TaskPage> {
     ),
     */
     const TaskListScreen(),
-    const Text(
-      'Index 1: Pesquisar',
-      style: optionStyle,
-    ),
-    const Text(
-      'Index 2: Sair',
-      style: optionStyle,
-    ),
+    const GitHubRepos(),
+    const Center(child: Text('saindo ... em construção')),
   ];
 
   void _onItemTapped(int index) {
@@ -136,7 +130,9 @@ class _TaskPageState extends State<TaskPage> {
           ),
           backgroundColor: const Color.fromRGBO(33, 31, 38, 75),
         ),*/
-        body: const TaskListScreen(),
+        body: Container(
+          child: _widgetOptions.elementAt(_selectedIndex),
+        ),
         /*floatingActionButton: FloatingActionButton(
           onPressed: () {},
           backgroundColor: const Color.fromRGBO(44, 44, 44, 1),
@@ -157,7 +153,7 @@ class _TaskPageState extends State<TaskPage> {
                   Icons.track_changes_rounded,
                   color: Colors.white,
                 ),
-                label: 'TaskPage',
+                label: 'Task',
               ),
               //search
               BottomNavigationBarItem(
