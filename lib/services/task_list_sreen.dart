@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:intl/intl.dart';
 import 'package:my_tasks/repositories/database_helper.dart';
 
 class TaskListScreen extends StatefulWidget {

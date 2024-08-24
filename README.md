@@ -11,6 +11,12 @@ Desenvolver aplicativo básico para gestão de tarefas. Aplicativo para quem des
 * CRUD tarefas.
 * Consulta API GitHub
 
+# Dependencias
+* sqflite
+* path
+* intl
+* dio
+
 # Tecnologias
 * Flutter
 * Sqflite
@@ -20,4 +26,4 @@ Desenvolver aplicativo básico para gestão de tarefas. Aplicativo para quem des
 - ["Protótipo"](https://www.figma.com/design/HIoJO1twLwsBfjvQN07w7a/MyTasks-App?node-id=0-1&t=Lpdfnfx04Uyu6crL-1)
 - ["Como criar uma caixa de dialogo"](https://api.flutter.dev/flutter/material/showDialog.html)
 
-# Reflecão Pessoal
+# Reflexão Pessoal
