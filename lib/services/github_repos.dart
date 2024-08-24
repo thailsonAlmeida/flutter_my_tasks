@@ -88,10 +88,13 @@ class _GitHubReposState extends State<GitHubRepos> {
                   ),
                 ),
               ),
+              cursorColor: Colors.black54,
             ),
             const SizedBox(height: 20),
             _isLoading
-                ? const CircularProgressIndicator()
+                ? const CircularProgressIndicator(
+                    color: Colors.black87,
+                  )
                 : _hasError
                     ? const Text(
                         'Erro ao buscar repositórios. Por favor, tente novamente.')
@@ -101,13 +104,35 @@ class _GitHubReposState extends State<GitHubRepos> {
                               itemCount: _repositories.length,
                               itemBuilder: (context, index) {
                                 final repo = _repositories[index];
-                                return ListTile(
-                                  title: Text(repo['name']),
-                                  subtitle: Text(
-                                      repo['description'] ?? 'Sem descrição'),
-                                  onTap: () {
-                                    // Ação ao clicar no repositório
-                                  },
+                                return Container(
+                                  padding: const EdgeInsets.all(8),
+                                  decoration: const BoxDecoration(
+                                    border: Border(
+                                      bottom: BorderSide(color: Colors.black12),
+                                    ),
+                                  ),
+                                  child: ListTile(
+                                    leading: const Icon(
+                                      Icons.star,
+                                      color: Colors.amber,
+                                    ),
+                                    title: Text(
+                                      repo['name'],
+                                      style: const TextStyle(
+                                          fontSize: 22,
+                                          fontWeight: FontWeight.w600,
+                                          color: Colors.black87),
+                                    ),
+                                    subtitle: Text(
+                                      repo['description'] ?? 'Sem descrição',
+                                      style: const TextStyle(
+                                        fontSize: 14,
+                                      ),
+                                    ),
+                                    onTap: () {
+                                      // Ação ao clicar no repositório
+                                    },
+                                  ),
                                 );
                               },
                             ),

@@ -29,9 +29,7 @@ class _TaskListScreenState extends State<TaskListScreen> {
   void _showTaskDialog([Map<String, dynamic>? task]) {
     final nameController = TextEditingController(text: task?['name'] ?? '');
     final dateController = TextEditingController(
-      text: task != null
-          ? DateFormat('yyyy-MM-dd').format(DateTime.parse(task['dueDate']))
-          : '',
+      text: task != null ? task['dueDate'] : '',
     );
     bool isComplete = task?['isComplete'] == 1;
 
@@ -175,28 +173,43 @@ class _TaskListScreenState extends State<TaskListScreen> {
         itemCount: _tasks.length,
         itemBuilder: (context, index) {
           final task = _tasks[index];
-          return ListTile(
-            title: Text(task['name']),
-            subtitle: Text('Entregar: ${task['dueDate']}'),
-            trailing: Checkbox(
-              value: task['isComplete'] == 1,
-              onChanged: (value) {
-                //erro
-                // Faz uma cópia mutável do mapa da tarefa
-                final updatedTask = Map<String, dynamic>.from(task);
-
-                // Modifica a cópia
-                updatedTask['isComplete'] = value! ? 1 : 0;
-
-                // Atualiza a tarefa no banco de dados
-                _dbHelper.updateTask(updatedTask);
-
-                // Atualiza a lista de tarefas na UI
-                _refreshTasks();
-              },
+          return Container(
+            padding: const EdgeInsets.all(8),
+            margin: const EdgeInsets.all(8),
+            decoration: BoxDecoration(
+              border: Border.all(color: Colors.black12),
+              borderRadius: const BorderRadius.all(Radius.circular(8.0)),
             ),
-            onTap: () => _showTaskDialog(task),
-            onLongPress: () => _deleteTask(task['id']),
+            child: ListTile(
+              title: Text(
+                task['name'],
+                style: const TextStyle(
+                  fontWeight: FontWeight.w600,
+                  fontSize: 25,
+                  color: Colors.black87,
+                ),
+              ),
+              subtitle: Text(
+                '${task['dueDate']}',
+                style: const TextStyle(
+                  fontSize: 22,
+                  color: Colors.black54,
+                ),
+              ),
+              leading: Checkbox(
+                value: task['isComplete'] == 1,
+                onChanged: (value) {
+                  final updatedTask = Map<String, dynamic>.from(task);
+                  updatedTask['isComplete'] = value! ? 1 : 0;
+                  _dbHelper.updateTask(updatedTask);
+                  _refreshTasks();
+                },
+                shape: const CircleBorder(),
+                activeColor: Colors.green[700],
+              ),
+              onTap: () => _showTaskDialog(task),
+              onLongPress: () => _deleteTask(task['id']),
+            ),
           );
         },
       ),
