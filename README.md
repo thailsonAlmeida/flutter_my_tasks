@@ -35,3 +35,11 @@ Como criar um calendário para selecionar data?
 * Quando adiciono imagens do tipo svg da erro.
 * No cadastro do primeiro usuario sempre aparece a noticação de usuário existente.
     - Debugar para entender o que está acontecendo.
+
+# Implementações, melhorias e refatorações
+* Filtrar atividades  userID
+* Ao criar usuário não permitir criar nome de usuário e senha.
+* Ao pesquisar o repositório implementar outras funcionalidade.
+    - Acessar repositorio
+    - Salvar dados do repositorio no banco
+    - etc
