@@ -167,58 +167,53 @@ class _TaskListScreenState extends State<TaskListScreen> {
             mainAxisSize: MainAxisSize.min,
             children: [
               ListTile(
-                leading: Icon(Icons.star),
                 title: Text(
                   'Specific (Específica)',
-                  style: TextStyle(fontWeight: FontWeight.w700, fontSize: 20),
+                  style: TextStyle(fontWeight: FontWeight.w700, fontSize: 14),
                 ),
                 subtitle: Text(
                   'A meta deve ser clara e específica.',
-                  style: TextStyle(fontSize: 16),
+                  style: TextStyle(fontSize: 12),
                 ),
               ),
               ListTile(
-                leading: Icon(Icons.star),
                 title: Text(
                   'Measurable (Mensurável):',
-                  style: TextStyle(fontWeight: FontWeight.w700, fontSize: 20),
+                  style: TextStyle(fontWeight: FontWeight.w700, fontSize: 14),
                 ),
                 subtitle: Text(
                   'A meta deve ser possível avaliar o progresso.',
-                  style: TextStyle(fontSize: 16),
+                  style: TextStyle(fontSize: 12),
                 ),
               ),
               ListTile(
-                leading: Icon(Icons.star),
                 title: Text(
                   'Attainable (Atingível)',
-                  style: TextStyle(fontWeight: FontWeight.w700, fontSize: 20),
+                  style: TextStyle(fontWeight: FontWeight.w700, fontSize: 14),
                 ),
                 subtitle: Text(
                   'A meta deve ser realista e possível de alcançar.',
-                  style: TextStyle(fontSize: 16),
+                  style: TextStyle(fontSize: 12),
                 ),
               ),
               ListTile(
-                leading: Icon(Icons.star),
                 title: Text(
                   'Relevant (Relevante)',
-                  style: TextStyle(fontWeight: FontWeight.w700, fontSize: 20),
+                  style: TextStyle(fontWeight: FontWeight.w700, fontSize: 14),
                 ),
                 subtitle: Text(
                   'A meta deve ser relevante para os objetivos maiores ou valores da pessoa ou organização.',
-                  style: TextStyle(fontSize: 16),
+                  style: TextStyle(fontSize: 12),
                 ),
               ),
               ListTile(
-                leading: Icon(Icons.star),
                 title: Text(
                   'Time-bound (Temporal)',
-                  style: TextStyle(fontWeight: FontWeight.w700, fontSize: 20),
+                  style: TextStyle(fontWeight: FontWeight.w700, fontSize: 14),
                 ),
                 subtitle: Text(
                   'A meta deve ter um prazo definido, o que cria um senso de urgência e ajuda a focar os esforços.',
-                  style: TextStyle(fontSize: 16),
+                  style: TextStyle(fontSize: 12),
                 ),
               ),
             ],
@@ -266,8 +261,18 @@ class _TaskListScreenState extends State<TaskListScreen> {
             padding: const EdgeInsets.all(8),
             margin: const EdgeInsets.all(8),
             decoration: BoxDecoration(
-              border: Border.all(color: Colors.black12),
-              borderRadius: const BorderRadius.all(Radius.circular(8.0)),
+              color: Colors.white,
+              border:
+                  Border.all(color: const Color.fromARGB(69, 177, 177, 177)),
+              borderRadius: const BorderRadius.all(
+                Radius.circular(8.0),
+              ),
+              boxShadow: const [
+                BoxShadow(
+                    color: Color.fromARGB(69, 133, 133, 133),
+                    blurRadius: 2.0,
+                    offset: Offset(0, 2))
+              ],
             ),
             child: ListTile(
               title: Text(

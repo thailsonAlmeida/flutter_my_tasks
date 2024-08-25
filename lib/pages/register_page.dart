@@ -18,9 +18,9 @@ class _RegisterPageState extends State<RegisterPage> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             //logo
-            const SizedBox(
-              height: 200,
-              child: Image(
+            Container(
+              padding: const EdgeInsets.only(top: 10, bottom: 20),
+              child: const Image(
                 image: AssetImage(
                   'assets/images/logo_usercreate.png',
                 ),
@@ -37,6 +37,7 @@ class _RegisterPageState extends State<RegisterPage> {
                     prefixIcon: Icon(Icons.person),
                     border: OutlineInputBorder(),
                     focusedBorder: OutlineInputBorder()),
+                cursorColor: Colors.black54,
               ),
             ),
 
@@ -51,6 +52,7 @@ class _RegisterPageState extends State<RegisterPage> {
                     prefixIcon: Icon(Icons.lock_rounded),
                     border: OutlineInputBorder(),
                     focusedBorder: OutlineInputBorder()),
+                cursorColor: Colors.black54,
               ),
             ),
 

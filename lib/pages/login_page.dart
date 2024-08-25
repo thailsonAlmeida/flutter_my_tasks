@@ -18,11 +18,11 @@ class _LoginPageState extends State<LoginPage> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             //logo
-            const SizedBox(
-              height: 200,
-              child: Image(
+            Container(
+              padding: const EdgeInsets.only(top: 10, bottom: 20),
+              child: const Image(
                 image: AssetImage(
-                  'assets/images/Logo.png',
+                  'assets/images/logo.png',
                 ),
               ),
             ),
