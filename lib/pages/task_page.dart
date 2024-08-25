@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:my_tasks/services/github_repos.dart';
 import 'package:my_tasks/services/task_list_sreen.dart';
@@ -15,7 +17,7 @@ class _TaskPageState extends State<TaskPage> {
   static final List<Widget> _widgetOptions = <Widget>[
     const TaskListScreen(),
     const GitHubRepos(),
-    const Center(child: Text('saindo ... em construção')),
+    const Text('saindo')
   ];
 
   void _onItemTapped(int index) {
@@ -26,49 +28,46 @@ class _TaskPageState extends State<TaskPage> {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: Scaffold(
-        body: Container(
-          child: _widgetOptions.elementAt(_selectedIndex),
-        ),
-        bottomNavigationBar: SizedBox(
-          height: 100,
-          child: BottomNavigationBar(
-            backgroundColor: Colors.black,
-            items: const <BottomNavigationBarItem>[
-              //TaskPage
-              BottomNavigationBarItem(
-                icon: Icon(
-                  size: 35,
-                  Icons.track_changes_rounded,
-                  color: Colors.white,
-                ),
-                label: 'Tasks',
+    return Scaffold(
+      body: Container(
+        child: _widgetOptions.elementAt(_selectedIndex),
+      ),
+      bottomNavigationBar: SizedBox(
+        height: 100,
+        child: BottomNavigationBar(
+          backgroundColor: Colors.black,
+          items: const <BottomNavigationBarItem>[
+            //TaskPage
+            BottomNavigationBarItem(
+              icon: Icon(
+                size: 35,
+                Icons.track_changes_rounded,
+                color: Colors.white,
               ),
-              //search
-              BottomNavigationBarItem(
-                icon: Icon(
-                  size: 35,
-                  Icons.search,
-                  color: Colors.white,
-                ),
-                label: 'Pesquisar',
+              label: 'Tasks',
+            ),
+            //search
+            BottomNavigationBarItem(
+              icon: Icon(
+                size: 35,
+                Icons.search,
+                color: Colors.white,
               ),
-              //exit
-              BottomNavigationBarItem(
-                icon: Icon(
-                  size: 35,
-                  Icons.exit_to_app_rounded,
-                  color: Colors.white,
-                ),
-                label: 'Sair',
+              label: 'Pesquisar',
+            ),
+            //exit
+            BottomNavigationBarItem(
+              icon: Icon(
+                size: 35,
+                Icons.exit_to_app_rounded,
+                color: Colors.white,
               ),
-            ],
-            currentIndex: _selectedIndex,
-            selectedItemColor: const Color.fromARGB(255, 255, 255, 255),
-            onTap: _onItemTapped,
-          ),
+              label: 'Sair',
+            ),
+          ],
+          currentIndex: _selectedIndex == 2 ? exit(0) : _selectedIndex,
+          selectedItemColor: const Color.fromARGB(255, 255, 255, 255),
+          onTap: _onItemTapped,
         ),
       ),
     );

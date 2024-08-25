@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:my_tasks/repositories/database_helper.dart';
+import 'package:my_tasks/repositories/task_repository.dart';
 
 class TaskListScreen extends StatefulWidget {
   const TaskListScreen({super.key});
@@ -9,7 +9,7 @@ class TaskListScreen extends StatefulWidget {
 }
 
 class _TaskListScreenState extends State<TaskListScreen> {
-  final DatabaseHelper _dbHelper = DatabaseHelper();
+  final TaskRepository _dbHelper = TaskRepository();
   List<Map<String, dynamic>> _tasks = [];
 
   @override

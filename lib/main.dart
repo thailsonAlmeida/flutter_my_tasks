@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:my_tasks/pages/register_page.dart';
 import 'package:my_tasks/services/github_repos.dart';
 import 'package:my_tasks/pages/login_page.dart';
 import 'package:my_tasks/services/task_list_sreen.dart';
@@ -16,11 +17,13 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: const LoginPage(),
+      initialRoute: '/login',
       routes: {
-        '/github_repos': (context) => const GitHubRepos(),
-        '/task_page': (context) => const TaskPage(),
+        '/login': (context) => const LoginPage(),
+        '/register': (context) => const RegisterPage(),
+        '/home': (context) => const TaskPage(),
         '/task_list': (context) => const TaskListScreen(),
+        '/github_repos': (context) => const GitHubRepos(),
       },
     );
   }

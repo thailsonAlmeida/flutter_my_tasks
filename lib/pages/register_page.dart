@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:my_tasks/pages/components/button_custom.dart';
 
-class LoginPage extends StatefulWidget {
-  const LoginPage({super.key});
+class RegisterPage extends StatefulWidget {
+  const RegisterPage({super.key});
 
   @override
-  State<LoginPage> createState() => _LoginPageState();
+  State<RegisterPage> createState() => _RegisterPageState();
 }
 
-class _LoginPageState extends State<LoginPage> {
+class _RegisterPageState extends State<RegisterPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -22,7 +22,7 @@ class _LoginPageState extends State<LoginPage> {
               height: 200,
               child: Image(
                 image: AssetImage(
-                  'assets/images/Logo.png',
+                  'assets/images/logo_usercreate.png',
                 ),
               ),
             ),
@@ -37,7 +37,6 @@ class _LoginPageState extends State<LoginPage> {
                     prefixIcon: Icon(Icons.person),
                     border: OutlineInputBorder(),
                     focusedBorder: OutlineInputBorder()),
-                cursorColor: Colors.black54,
               ),
             ),
 
@@ -52,7 +51,6 @@ class _LoginPageState extends State<LoginPage> {
                     prefixIcon: Icon(Icons.lock_rounded),
                     border: OutlineInputBorder(),
                     focusedBorder: OutlineInputBorder()),
-                cursorColor: Colors.black54,
               ),
             ),
 
@@ -64,10 +62,10 @@ class _LoginPageState extends State<LoginPage> {
                   margin: const EdgeInsets.only(right: 20),
                   child: InkWell(
                     onTap: () {
-                      Navigator.pushNamed(context, '/register');
+                      Navigator.pushNamed(context, '/login');
                     },
                     child: const Text(
-                      'Registrar',
+                      'Cancelar',
                       style: TextStyle(fontSize: 20),
                     ),
                   ),
@@ -75,10 +73,8 @@ class _LoginPageState extends State<LoginPage> {
 
                 //Button
                 ButtonCustom(
-                  text: 'Acessar',
-                  onTap: () {
-                    Navigator.pushNamed(context, '/home');
-                  },
+                  text: 'Criar',
+                  onTap: () {},
                 )
               ],
             ),
