@@ -1,7 +1,4 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
-import 'package:my_tasks/pages/components/button_custom.dart';
 import 'package:my_tasks/repositories/task_repository.dart';
 
 class TaskListScreen extends StatefulWidget {
