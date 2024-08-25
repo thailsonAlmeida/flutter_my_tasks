@@ -20,9 +20,12 @@ class _RegisterPageState extends State<RegisterPage> {
             //logo
             Container(
               padding: const EdgeInsets.only(top: 10, bottom: 20),
-              child: const Image(
-                image: AssetImage(
-                  'assets/images/logo_usercreate.png',
+              child: const SizedBox(
+                width: 60,
+                child: Image(
+                  image: AssetImage(
+                    'assets/images/logo_usercreate.png',
+                  ),
                 ),
               ),
             ),

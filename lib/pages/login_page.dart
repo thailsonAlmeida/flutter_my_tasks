@@ -20,9 +20,12 @@ class _LoginPageState extends State<LoginPage> {
             //logo
             Container(
               padding: const EdgeInsets.only(top: 10, bottom: 20),
-              child: const Image(
-                image: AssetImage(
-                  'assets/images/logo.png',
+              child: const SizedBox(
+                width: 60,
+                child: Image(
+                  image: AssetImage(
+                    'assets/images/logo.png',
+                  ),
                 ),
               ),
             ),
