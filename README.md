@@ -24,7 +24,12 @@ Desenvolver aplicativo básico para gestão de tarefas. Aplicativo para quem des
 # Recursos
 - ["Docs Flutter Dev "](https://docs.flutter.dev/)
 - ["Protótipo"](https://www.figma.com/design/HIoJO1twLwsBfjvQN07w7a/MyTasks-App?node-id=0-1&t=Lpdfnfx04Uyu6crL-1)
-- ["Como criar uma caixa de dialogo"](https://api.flutter.dev/flutter/material/showDialog.html)
+
+Como criar uma caixa de dialogo
+- ["AlertDialog"](https://api.flutter.dev/flutter/material/showDialog.html)
+
+Como criar um calendário para selecionar data.
+- ["showDatePicker"](https://api.flutter.dev/flutter/material/showDatePicker.html)
 
 # Reflexão Pessoal
 * Quando adiciono imagens do tipo svg da erro.

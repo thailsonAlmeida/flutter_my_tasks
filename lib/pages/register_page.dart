@@ -1,7 +1,6 @@
 // ignore_for_file: use_build_context_synchronously
 
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:my_tasks/pages/components/button_custom.dart';
 import 'package:my_tasks/repositories/user_repository.dart';
 
@@ -17,8 +16,8 @@ class _RegisterPageState extends State<RegisterPage> {
   final TextEditingController _passwordController = TextEditingController();
   final UserRepository _userRepository = UserRepository();
 
+  /*
   String _messageError = '';
-
   Future<void> _register() async {
     final username = _usernameController.text;
     final password = _passwordController.text;
@@ -30,6 +29,7 @@ class _RegisterPageState extends State<RegisterPage> {
             _messageError = 'Usuário existente';
           });
   }
+  */
 
   @override
   Widget build(BuildContext context) {
@@ -129,8 +129,9 @@ class _RegisterPageState extends State<RegisterPage> {
                 )
               ],
             ),
+            /*
             if (_messageError.isNotEmpty)
-              Text(_messageError, style: const TextStyle(color: Colors.red))
+              Text(_messageError, style: const TextStyle(color: Colors.red))*/
           ],
         ),
       ),

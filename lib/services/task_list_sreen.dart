@@ -73,6 +73,36 @@ class _TaskListScreenState extends State<TaskListScreen> {
                 ),
                 cursorColor: Colors.white,
                 controller: dateController,
+                readOnly: true,
+                onTap: () async {
+                  DateTime? pickedDate = await showDatePicker(
+                    context: context,
+                    initialDate: DateTime.now(),
+                    firstDate: DateTime(2000),
+                    lastDate: DateTime(2200),
+                    builder: (context, child) {
+                      return Theme(
+                        data: ThemeData.dark().copyWith(
+                          colorScheme: const ColorScheme.dark(
+                            primary: Colors.blue, // Cabeçalho do calendário
+                            onPrimary:
+                                Colors.white, // Texto dentro do cabeçalho
+                            surface: Colors.black, // Fundo do calendário
+                            onSurface:
+                                Colors.white, // Texto padrão do calendário
+                          ),
+                          dialogBackgroundColor: Colors.black,
+                        ),
+                        child: child!,
+                      );
+                    },
+                  );
+                  if (pickedDate != null) {
+                    String formattedDate =
+                        "${pickedDate.year}-${pickedDate.month.toString().padLeft(2, '0')}-${pickedDate.day.toString().padLeft(2, '0')}";
+                    dateController.text = formattedDate;
+                  }
+                },
                 decoration: const InputDecoration(
                   labelText: 'Data (YYYY-MM-DD)',
                   labelStyle: TextStyle(
