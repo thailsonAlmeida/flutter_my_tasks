@@ -9,7 +9,7 @@ class TaskListScreen extends StatefulWidget {
 }
 
 class _TaskListScreenState extends State<TaskListScreen> {
-  final TaskRepository _dbHelper = TaskRepository();
+  final TaskRepository taskRepository = TaskRepository();
   List<Map<String, dynamic>> _tasks = [];
 
   @override
@@ -19,7 +19,7 @@ class _TaskListScreenState extends State<TaskListScreen> {
   }
 
   void _refreshTasks() async {
-    final tasks = await _dbHelper.getTasks();
+    final tasks = await taskRepository.getTasks();
     setState(() {
       _tasks = tasks;
     });
@@ -112,13 +112,13 @@ class _TaskListScreenState extends State<TaskListScreen> {
             ElevatedButton(
               onPressed: () async {
                 if (task == null) {
-                  await _dbHelper.insertTask({
+                  await taskRepository.insertTask({
                     'name': nameController.text,
                     'dueDate': dateController.text,
                     'isComplete': isComplete ? 1 : 0,
                   });
                 } else {
-                  await _dbHelper.updateTask({
+                  await taskRepository.updateTask({
                     'id': task['id'],
                     'name': nameController.text,
                     'dueDate': dateController.text,
@@ -153,7 +153,7 @@ class _TaskListScreenState extends State<TaskListScreen> {
   }
 
   void _deleteTask(int id) async {
-    await _dbHelper.deleteTask(id);
+    await taskRepository.deleteTask(id);
     _refreshTasks();
   }
 
@@ -200,7 +200,7 @@ class _TaskListScreenState extends State<TaskListScreen> {
                 onChanged: (value) {
                   final updatedTask = Map<String, dynamic>.from(task);
                   updatedTask['isComplete'] = value! ? 1 : 0;
-                  _dbHelper.updateTask(updatedTask);
+                  taskRepository.updateTask(updatedTask);
                   _refreshTasks();
                 },
                 shape: const CircleBorder(),
