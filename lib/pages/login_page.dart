@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:my_tasks/pages/components/button_custom.dart';
+import 'package:my_tasks/repositories/user_repository.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
@@ -9,6 +10,27 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
+  final TextEditingController _usernameController = TextEditingController();
+  final TextEditingController _passwordController = TextEditingController();
+  final UserRepository _userRepository = UserRepository();
+
+  String _messageError = '';
+
+  Future<void> _login() async {
+    final username = _usernameController.text;
+    final password = _passwordController.text;
+
+    final user = await _userRepository.authenticateUser(username, password);
+
+    user != null
+        ? Navigator.pushReplacementNamed(context, '/home')
+        : setState(
+            () {
+              _messageError = 'Usuário ou senha inválida';
+            },
+          );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -31,30 +53,34 @@ class _LoginPageState extends State<LoginPage> {
             ),
 
             //inputs
-            const SizedBox(
+            SizedBox(
               height: 100,
               child: TextField(
-                decoration: InputDecoration(
-                    label: Text('Usuário'),
-                    labelStyle: TextStyle(color: Colors.black54),
-                    prefixIcon: Icon(Icons.person),
-                    border: OutlineInputBorder(),
-                    focusedBorder: OutlineInputBorder()),
+                controller: _usernameController,
+                decoration: const InputDecoration(
+                  label: Text('Usuário'),
+                  labelStyle: TextStyle(color: Colors.black54),
+                  prefixIcon: Icon(Icons.person),
+                  border: OutlineInputBorder(),
+                  focusedBorder: OutlineInputBorder(),
+                ),
                 cursorColor: Colors.black54,
               ),
             ),
 
-            const SizedBox(
+            SizedBox(
               height: 100,
               child: TextField(
+                controller: _passwordController,
                 obscureText: true,
                 obscuringCharacter: "*",
-                decoration: InputDecoration(
-                    label: Text('Senha'),
-                    labelStyle: TextStyle(color: Colors.black54),
-                    prefixIcon: Icon(Icons.lock_rounded),
-                    border: OutlineInputBorder(),
-                    focusedBorder: OutlineInputBorder()),
+                decoration: const InputDecoration(
+                  label: Text('Senha'),
+                  labelStyle: TextStyle(color: Colors.black54),
+                  prefixIcon: Icon(Icons.lock_rounded),
+                  border: OutlineInputBorder(),
+                  focusedBorder: OutlineInputBorder(),
+                ),
                 cursorColor: Colors.black54,
               ),
             ),
@@ -80,11 +106,14 @@ class _LoginPageState extends State<LoginPage> {
                 ButtonCustom(
                   text: 'Acessar',
                   onTap: () {
-                    Navigator.pushNamed(context, '/home');
+                    //Navigator.pushNamed(context, '/home');
+                    _login();
                   },
-                )
+                ),
               ],
             ),
+            if (_messageError.isNotEmpty)
+              Text(_messageError, style: const TextStyle(color: Colors.red))
           ],
         ),
       ),

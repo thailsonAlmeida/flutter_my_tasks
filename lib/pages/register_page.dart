@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:my_tasks/pages/components/button_custom.dart';
+import 'package:my_tasks/repositories/user_repository.dart';
 
 class RegisterPage extends StatefulWidget {
   const RegisterPage({super.key});
@@ -9,6 +10,24 @@ class RegisterPage extends StatefulWidget {
 }
 
 class _RegisterPageState extends State<RegisterPage> {
+  final TextEditingController _usernameController = TextEditingController();
+  final TextEditingController _passwordController = TextEditingController();
+  final UserRepository _userRepository = UserRepository();
+
+  String _messageError = '';
+
+  Future<void> _register() async {
+    final username = _usernameController.text;
+    final password = _passwordController.text;
+    final result = await _userRepository.registerUser(username, password);
+
+    result != 1
+        ? Navigator.pop(context)
+        : setState(() {
+            _messageError = 'Usuário existente';
+          });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -30,39 +49,45 @@ class _RegisterPageState extends State<RegisterPage> {
               ),
             ),
 
-            //inputs
-            const SizedBox(
+            //input_user
+            SizedBox(
               height: 100,
               child: TextField(
-                decoration: InputDecoration(
-                    label: Text('Usuário'),
-                    labelStyle: TextStyle(color: Colors.black54),
-                    prefixIcon: Icon(Icons.person),
-                    border: OutlineInputBorder(),
-                    focusedBorder: OutlineInputBorder()),
+                controller: _usernameController,
+                decoration: const InputDecoration(
+                  label: Text('Usuário'),
+                  labelStyle: TextStyle(color: Colors.black54),
+                  prefixIcon: Icon(Icons.person),
+                  border: OutlineInputBorder(),
+                  focusedBorder: OutlineInputBorder(),
+                ),
                 cursorColor: Colors.black54,
               ),
             ),
 
-            const SizedBox(
+            //input_password
+            SizedBox(
               height: 100,
               child: TextField(
+                controller: _passwordController,
                 obscureText: true,
                 obscuringCharacter: "*",
-                decoration: InputDecoration(
-                    label: Text('Senha'),
-                    labelStyle: TextStyle(color: Colors.black54),
-                    prefixIcon: Icon(Icons.lock_rounded),
-                    border: OutlineInputBorder(),
-                    focusedBorder: OutlineInputBorder()),
+                decoration: const InputDecoration(
+                  label: Text('Senha'),
+                  labelStyle: TextStyle(color: Colors.black54),
+                  prefixIcon: Icon(Icons.lock_rounded),
+                  border: OutlineInputBorder(),
+                  focusedBorder: OutlineInputBorder(),
+                ),
                 cursorColor: Colors.black54,
               ),
             ),
 
+            //buttons
             Row(
               mainAxisAlignment: MainAxisAlignment.end,
               children: [
-                //create
+                //cancel
                 Container(
                   margin: const EdgeInsets.only(right: 20),
                   child: InkWell(
@@ -76,13 +101,17 @@ class _RegisterPageState extends State<RegisterPage> {
                   ),
                 ),
 
-                //Button
+                //crete
                 ButtonCustom(
                   text: 'Criar',
-                  onTap: () {},
+                  onTap: () {
+                    _register();
+                  },
                 )
               ],
             ),
+            if (_messageError.isNotEmpty)
+              Text(_messageError, style: const TextStyle(color: Colors.red))
           ],
         ),
       ),

@@ -20,6 +20,14 @@ class DBHelper {
   }
 
   static void _onCreate(Database dataBase, int view) async {
+    debugPrint('Criando a tabela Users');
+    await dataBase.execute('''
+      CREATE TABLE users(
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        username TEXT UNIQUE,
+        password TEXT
+      )
+    ''');
     debugPrint('Criando a tabela Tasks');
     await dataBase.execute('''
           CREATE TABLE tasks(
@@ -29,14 +37,6 @@ class DBHelper {
             isComplete INTEGER
           )
           ''');
-    debugPrint('Criando a tabela Users');
-    await dataBase.execute('''
-      CREATE TABLE users(
-        id INTEGER PRIMARY KEY AUTOINCREMENT,
-        username TEXT UNIQUE,
-        password TEXT
-      )
-    ''');
   }
 
   static void _onOpen(Database dataBase) async {
