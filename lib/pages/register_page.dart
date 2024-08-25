@@ -1,4 +1,7 @@
+// ignore_for_file: use_build_context_synchronously
+
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:my_tasks/pages/components/button_custom.dart';
 import 'package:my_tasks/repositories/user_repository.dart';
 
@@ -104,8 +107,24 @@ class _RegisterPageState extends State<RegisterPage> {
                 //crete
                 ButtonCustom(
                   text: 'Criar',
-                  onTap: () {
-                    _register();
+                  onTap: () async {
+                    //_register();
+
+                    try {
+                      await _userRepository.createUser(
+                        _usernameController.text,
+                        _passwordController.text,
+                      );
+                      ScaffoldMessenger.of(context).showSnackBar(
+                        const SnackBar(
+                            content: Text('Usuário criado com sucesso!')),
+                      );
+                      Navigator.pop(context);
+                    } catch (e) {
+                      ScaffoldMessenger.of(context).showSnackBar(
+                        SnackBar(content: Text(e.toString())),
+                      );
+                    }
                   },
                 )
               ],

@@ -113,7 +113,13 @@ class _LoginPageState extends State<LoginPage> {
               ],
             ),
             if (_messageError.isNotEmpty)
-              Text(_messageError, style: const TextStyle(color: Colors.red))
+              Container(
+                padding: const EdgeInsets.only(top: 20),
+                child: Text(
+                  _messageError,
+                  style: const TextStyle(color: Colors.red),
+                ),
+              ),
           ],
         ),
       ),

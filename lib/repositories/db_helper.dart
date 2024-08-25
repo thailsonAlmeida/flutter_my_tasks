@@ -37,6 +37,12 @@ class DBHelper {
             isComplete INTEGER
           )
           ''');
+    // Inserir o usuário admin
+
+    dataBase.insert('users', {
+      'username': 'admin',
+      'password': 'admin',
+    });
   }
 
   static void _onOpen(Database dataBase) async {

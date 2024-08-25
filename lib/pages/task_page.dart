@@ -1,6 +1,7 @@
 import 'dart:io';
 
 import 'package:flutter/material.dart';
+import 'package:my_tasks/pages/login_page.dart';
 import 'package:my_tasks/services/github_repos.dart';
 import 'package:my_tasks/services/task_list_sreen.dart';
 
@@ -24,6 +25,20 @@ class _TaskPageState extends State<TaskPage> {
     setState(() {
       _selectedIndex = index;
     });
+
+    if (index == 2) {
+      _logout();
+    }
+  }
+
+  void _logout() {
+    // Limpar dados persistentes, como SharedPreferences
+
+    // Navegar para a tela de login
+    Navigator.pushReplacement(
+      context,
+      MaterialPageRoute(builder: (context) => const LoginPage()),
+    );
   }
 
   @override
@@ -65,7 +80,7 @@ class _TaskPageState extends State<TaskPage> {
               label: 'Sair',
             ),
           ],
-          currentIndex: _selectedIndex == 2 ? exit(0) : _selectedIndex,
+          currentIndex: _selectedIndex,
           selectedItemColor: const Color.fromARGB(255, 255, 255, 255),
           onTap: _onItemTapped,
         ),

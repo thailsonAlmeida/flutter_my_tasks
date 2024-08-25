@@ -27,3 +27,6 @@ Desenvolver aplicativo básico para gestão de tarefas. Aplicativo para quem des
 - ["Como criar uma caixa de dialogo"](https://api.flutter.dev/flutter/material/showDialog.html)
 
 # Reflexão Pessoal
+* Quando adiciono imagens do tipo svg da erro.
+* No cadastro do primeiro usuario sempre aparece a noticação de usuário existente.
+    - Debugar para entender o que está acontecendo.
