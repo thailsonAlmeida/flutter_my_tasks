@@ -1,4 +1,7 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
+import 'package:my_tasks/pages/components/button_custom.dart';
 import 'package:my_tasks/repositories/task_repository.dart';
 
 class TaskListScreen extends StatefulWidget {
@@ -157,14 +160,104 @@ class _TaskListScreenState extends State<TaskListScreen> {
     _refreshTasks();
   }
 
+  void _showSmart() {
+    showDialog(
+      context: context,
+      builder: (context) {
+        return AlertDialog(
+          backgroundColor: Colors.white,
+          content: const Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              ListTile(
+                leading: Icon(Icons.star),
+                title: Text(
+                  'Specific (Específica)',
+                  style: TextStyle(fontWeight: FontWeight.w700, fontSize: 20),
+                ),
+                subtitle: Text(
+                  'A meta deve ser clara e específica.',
+                  style: TextStyle(fontSize: 16),
+                ),
+              ),
+              ListTile(
+                leading: Icon(Icons.star),
+                title: Text(
+                  'Measurable (Mensurável):',
+                  style: TextStyle(fontWeight: FontWeight.w700, fontSize: 20),
+                ),
+                subtitle: Text(
+                  'A meta deve ser possível avaliar o progresso.',
+                  style: TextStyle(fontSize: 16),
+                ),
+              ),
+              ListTile(
+                leading: Icon(Icons.star),
+                title: Text(
+                  'Attainable (Atingível)',
+                  style: TextStyle(fontWeight: FontWeight.w700, fontSize: 20),
+                ),
+                subtitle: Text(
+                  'A meta deve ser realista e possível de alcançar.',
+                  style: TextStyle(fontSize: 16),
+                ),
+              ),
+              ListTile(
+                leading: Icon(Icons.star),
+                title: Text(
+                  'Relevant (Relevante)',
+                  style: TextStyle(fontWeight: FontWeight.w700, fontSize: 20),
+                ),
+                subtitle: Text(
+                  'A meta deve ser relevante para os objetivos maiores ou valores da pessoa ou organização.',
+                  style: TextStyle(fontSize: 16),
+                ),
+              ),
+              ListTile(
+                leading: Icon(Icons.star),
+                title: Text(
+                  'Time-bound (Temporal)',
+                  style: TextStyle(fontWeight: FontWeight.w700, fontSize: 20),
+                ),
+                subtitle: Text(
+                  'A meta deve ter um prazo definido, o que cria um senso de urgência e ajuda a focar os esforços.',
+                  style: TextStyle(fontSize: 16),
+                ),
+              ),
+            ],
+          ),
+          actions: [
+            ElevatedButton(
+              onPressed: () async {
+                _refreshTasks();
+                Navigator.of(context).pop();
+              },
+              child: const Text(
+                'Serei Smart',
+                style: TextStyle(
+                  color: Colors.black,
+                ),
+              ),
+            ),
+          ],
+        );
+      },
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        leading: const Icon(
-          size: 35,
-          Icons.track_changes_rounded,
-          color: Colors.white,
+        leading: InkWell(
+          child: const Icon(
+            size: 35,
+            Icons.track_changes_rounded,
+            color: Colors.white,
+          ),
+          onTap: () {
+            _showSmart();
+          },
         ),
         backgroundColor: const Color.fromRGBO(33, 31, 38, 75),
       ),
